@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METAPANG Guide</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <link rel="shortcut icon" href="./assets/icon/favicon.ico">
+    <link rel="icon" href="./assets/icon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="./assets/icon/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" href="./assets/icon/favicon-96x96.png" sizes="96x96">
+    <!-- favicon -->
+</head>
+<body>
+    <div class="top_btn">
+        <span></span>
+    </div>
+    <header>
+        <h1 class="logo">
+            <a href="../index.html">MAIN</a>
+        </h1>
+        <nav>
+            <ul class="list">
+                <li>
+                    <a href="#">메타팡 몬스터 설명</a>
+                </li>
+                <li>
+                    <a href="#">메타팡 캐릭터 설명</a>
+                </li>
+                <li>
+                    <a href="#">메타팡 무기 설명</a>
+                </li>
+                <li>
+                    <a href="#">메타팡 보조 무기 설명</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="guideview-warpper container section">
+        <h2>메타팡 몬스터 설명</h2>
+        <img src="../assets/img/metapang_enemy.jpg" alt="메타팡 몬스터 설명">
+    </div>
+    <div class="guideview-warpper container section">
+        <h2>메타팡 캐릭터 설명</h2>
+        <img src="../assets/img/metapang_cha.jpg" alt="메타팡 캐릭터 설명">
+    </div>
+    <div class="guideview-warpper container section">
+        <h2>메타팡 무기 설명</h2>
+        <img src="../assets/img/metapang_weapon.jpg" alt="메타팡 무기 설명">
+    </div>
+    <div class="guideview-warpper container section">
+        <h2>메타팡 보조 무기 설명</h2>
+        <div class="guideimg_wapper">
+            <img src="../assets/img/metapang_subweapon.jpg" alt="메타팡 보조무기 설명">
+        </div>
+    </div>
+    <script>
+        const topBtn = document.querySelector('.top_btn');
+        const list = document.querySelectorAll('.list > li > a');
+        const section = document.querySelectorAll('.section');
+        const body =  document.querySelector('body')
+        let yOffset = 0;
+
+        window.addEventListener('load', () => {
+            window.addEventListener('scroll', () => {
+                yOffset = window.pageYOffset;
+                if (yOffset <= 10) {
+                    topBtn.classList.add('hide');
+                    topBtn.classList.remove('show');
+                }
+                if (yOffset >= 10) {
+                    topBtn.classList.add('show');
+                    topBtn.classList.remove('hide');
+                }
+            });
+        });
+        topBtn.addEventListener('click', () => {
+            scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+        });
+        
+        function smoothScroll() {
+            for (let i = 0; i < list.length; i++) {
+            list[i].addEventListener('click',(e) => {
+                e.preventDefault();
+                let offsetTop = section[i].offsetTop;
+                scrollTo({
+                    top: `${offsetTop}`,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        }
+        smoothScroll();
+    </script>
+</body>
+</html>

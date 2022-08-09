@@ -1,0 +1,220 @@
+@charset "utf-8";
+* {
+    box-sizing: border-box;
+}
+body {
+
+}
+header {
+    position: relative;
+    height: 70px;
+    border-bottom: solid 1px #e6eaea;
+    background: #fff;
+    z-index: 999;
+}
+nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+}
+.list {
+
+}
+.list li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 16px;
+}
+.list li a {
+    position: relative;
+    display: block;
+    padding: 10px 0;
+    font-weight: 300;
+}
+.list li a::before {
+    position: absolute;
+    content: '';
+    bottom: 5px;
+    width: 0%; height: 2px;
+    background: #000;
+    transition: .3s ease-in-out;
+}
+.list li:hover a::before{
+    width: 100%;
+}
+.list li:last-child {
+    margin-right: 0;
+}
+.logo {
+    position: absolute;
+    top: 10px; left: 10px;
+    font-weight: 400;
+    font-size: 24px;
+    border-radius: 10px;
+    background: #333;
+    z-index: 999;
+}
+.logo a {
+    display: block;
+    padding: 5px 20px;
+    color: #fff;
+}
+.section {
+    position: relative;
+    padding-bottom: 50px;
+}
+.section::before {
+    display: none;
+    position: absolute;
+    content: '';
+    top: 253px;
+    left: 0px;
+    width: 100%;
+    height: 550px;
+    background: #ab8256;
+}
+.section.metapang::before {
+    background: #9932bb;
+}
+.container {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    border-bottom: solid 1px #ededed;
+}
+.guide-wrapper {
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.guide-item {
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 440px;
+}
+.guide-title {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 70px;
+}
+.guide-title h2 {
+    letter-spacing: -1.3px;
+    font-size: 36px;
+    font-weight: 400;
+}
+.guide-title span {
+    line-height: 28px;
+    font-size: 26px;
+    font-weight: 300;
+}
+.guide-img {
+    display: none;
+    position: absolute;
+    width: 100%; height: 100%;
+    background: url(../img/strmnft.jpg);
+    background-size: 105%;
+}
+.guide-item:nth-child(3n) {
+    margin-right: 0;
+    float: left;
+}
+.guide-left {
+    position: relative;
+    overflow: hidden;
+    width: 100%; height: 100%;
+    background: #ffffff;
+}
+.guide-right {
+    position: absolute;
+    border-top: solid 10px #ec2125;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    padding: 10px 20px;
+    background: #fff;
+    box-shadow: 0px 5px 6px 0px #0000008c;
+}
+.guide-btn ul {
+    text-align: center;
+}
+.guide-btn ul li {
+    margin-bottom: 10px;
+}
+.guide-btn ul li:last-child {
+    margin-bottom: 0px;
+}
+.guide-btn ul li a:hover {
+    font-weight: 500;
+}
+.metapang .guide-right {
+    border-top: solid 10px #9b8fff;
+}
+.guideview-warpper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+.guideview-warpper h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+.guideview-warpper iframe {
+    width: 100%;
+}
+.guideimg_wapper {
+    max-width: 430px;
+    margin: 0 auto;
+}
+.guideimg_wapper img {
+    height: 100%;
+}
+.guideimg_wapper div {
+    margin-bottom: 20px;
+}
+.top_btn {
+    position: fixed;
+    bottom: 50px; right: 50px;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+    z-index: 99;
+}
+.top_btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+.top_btn.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+.top_btn span {
+    position: relative;
+    display: block;
+    border-radius: 10px;
+    width: 50px; height: 50px;
+    border: solid 2px #333;
+    background: #333;
+}
+.top_btn span::before {
+    position: absolute;
+    content: '';
+    top: 10px; left: 15px;
+    width: 3px; height: 20px;
+    transform: rotate(45deg);
+    background: #fff;
+}
+.top_btn span::after {
+    position: absolute;
+    content: '';
+    top: 10px; right: 15px;
+    width: 3px; height: 20px;
+    transform: rotate(-45deg);
+    background: #fff;
+}

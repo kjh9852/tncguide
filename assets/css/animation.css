@@ -1,0 +1,10 @@
+@keyframes barmove{
+    0% {width: 0;}
+    50% {width: 100%;}
+    100% {width: 0; right: 0; left: auto;}
+}
+@keyframes textshow {
+    0% {visibility: hidden;}
+    50% {visibility: hidden;}
+    100% {visibility: visible;}
+}
