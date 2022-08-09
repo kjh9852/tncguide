@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUIDE Collection Website </title>
+
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/fullpage.min.css">
+
+    <link rel="shortcut icon" href="./assets/icon/favicon.ico">
+    <link rel="icon" href="../assets/icon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="../assets/icon/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" href="../assets/icon/favicon-96x96.png" sizes="96x96">
+    <!-- favicon -->
+
+    <style>
+        .guide-wrapper {
+            position: relative;
+        }
+        .guide-wrapper::before {
+
+        }
+    </style>
+
+    <script src="../assets/js/fullpage.min.js"></script>
+    <script src="../assets/js/jquery.min_1.12.4.js"></script>
+</head>
+<body>
+    <div class="top_btn">
+        <span></span>
+    </div>
+    <div id="fullpage" class="guide-wrapper">
+        <div class="section metapang">
+            <div class="container">
+                <div class="guide-title">
+                    <h2 class="logo-img"><img src="../assets/img/metapanglogo02.png" alt=""></h2>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-left">
+                        <div class="guide-img">
+                            <!-- <img src="./assets/img/logo_light.svg" alt="strm"> -->
+                        </div>
+                    </div>
+                    <div class="guide-right">
+                        <div class="guide-btn">
+                            <ul>
+                                <li>
+                                    <a href="metapang_infor.html">메타팡 이용가이드 (몬스터, 캐릭터, 무기 / 보조무기 설명)</a>
+                                </li>
+                                <li>
+                                    <a href="metapang_pc_download.html">메타팡 데스크톱(Or 통합본) / VPN설치</a>
+                                </li>
+                                <li>
+                                    <a href="metapang_ios.html">메타팡 IOS / VPN설치</a>
+                                </li>
+                                <li>
+                                    <a href="metapang_android.html">메타팡 안드로이드 / VPN설치</a>
+                                </li>
+                                <li>
+                                    <a href="metapang_game.html">메타팡 게임 실행 방법</a>
+                                </li>
+                                <li>
+                                    <a href="metapang_buy.html">메타팡 무기 구매 방법</a>
+                                </li>
+                                <li>
+                                    <a href="mepang_swap.html">메타팡 MIP 코인 스왑 방법</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const topBtn = document.querySelector('.top_btn');
+        const list = document.querySelectorAll('.list > li > a');
+        const section = document.querySelectorAll('.section');
+        const body =  document.querySelector('body')
+        let yOffset = 0;
+
+        $('.nav_btn').click(function(){
+            $('.m_Nav').slideToggle();
+        });
+
+        window.addEventListener('load', () => {
+            window.addEventListener('scroll', () => {
+                yOffset = window.pageYOffset;
+                if (yOffset <= 10) {
+                    topBtn.classList.add('hide');
+                    topBtn.classList.remove('show');
+                }
+                if (yOffset >= 10) {
+                    topBtn.classList.add('show');
+                    topBtn.classList.remove('hide');
+                }
+            });
+        });
+        topBtn.addEventListener('click', () => {
+            scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+        });
+        function smoothScroll() {
+            for (let i = 0; i < list.length; i++) {
+            list[i].addEventListener('click',(e) => {
+                e.preventDefault();
+                let offsetTop = section[i].offsetTop;
+                scrollTo({
+                    top: `${offsetTop}`,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        }
+        smoothScroll();
+    </script>
+</body>
+</html>

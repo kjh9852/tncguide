@@ -7,12 +7,15 @@
     <title>STRMNFT Guide</title>
     <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    
-    <link rel="shortcut icon" href="./assets/icon/favicon.ico">
-    <link rel="icon" href="./assets/icon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" href="./assets/icon/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" href="./assets/icon/favicon-96x96.png" sizes="96x96">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+
+    <link rel="shortcut icon" href="../assets/icon/favicon.ico">
+    <link rel="icon" href="../assets/icon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="../assets/icon/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" href="../assets/icon/favicon-96x96.png" sizes="96x96">
     <!-- favicon -->
+
+    <script src="../assets/js/jquery.min_1.12.4.js"></script>
 </head>
 <body>
     <div class="top_btn">
@@ -20,7 +23,7 @@
     </div>
     <header>
         <h1 class="logo">
-            <a href="../index.html">MAIN</a>
+            <a href="./strmnft.html">MENU</a>
         </h1>
         <nav>
             <ul class="list">
@@ -31,6 +34,19 @@
                     <a href="#">STRMNFT 판매 방법</a>
                 </li>
             </ul>
+            <div class="nav_btn">
+                <span></span>
+            </div>
+            <div class="m_Nav">
+                <ul class="m_list">
+                    <li>
+                        <a href="#">STRMNFT 구매 방법</a>
+                    </li>
+                    <li>
+                        <a href="#">STRMNFT 판매 방법</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
     <div class="guideview-warpper container section">
@@ -45,9 +61,14 @@
     <script>
         const topBtn = document.querySelector('.top_btn');
         const list = document.querySelectorAll('.list > li > a');
+        const mList = document.querySelectorAll('.m_list > li > a')
         const section = document.querySelectorAll('.section');
-        const body =  document.querySelector('body');
+        const body =  document.querySelector('body')
         let yOffset = 0;
+
+        $('.nav_btn').click(function(){
+            $('.m_Nav').slideToggle();
+        });
 
         window.addEventListener('load', () => {
             window.addEventListener('scroll', () => {
@@ -62,6 +83,7 @@
                 }
             });
         });
+
         topBtn.addEventListener('click', () => {
             scrollTo({
                     top: 0,
@@ -69,11 +91,9 @@
                     behavior: 'smooth'
                 });
         });
-        
-
-        function smoothScroll() {
-            for (let i = 0; i < list.length; i++) {
-            list[i].addEventListener('click',(e) => {
+        function smoothScroll(index) {
+            for (let i = 0; i < index.length; i++) {
+                index[i].addEventListener('click',(e) => {
                 e.preventDefault();
                 let offsetTop = section[i].offsetTop;
                 scrollTo({
@@ -84,7 +104,8 @@
             });
         }
         }
-        smoothScroll();
+        smoothScroll(list);
+        smoothScroll(mList);
     </script>
 </body>
 </html>

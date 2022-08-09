@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/fullpage.min.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
     <link rel="shortcut icon" href="./assets/icon/favicon.ico">
     <link rel="icon" href="./assets/icon/favicon-32x32.png" sizes="32x32">
@@ -16,7 +17,8 @@
     <link rel="icon" href="./assets/icon/favicon-96x96.png" sizes="96x96">
     <!-- favicon -->
 
-    <script src="assets/js/fullpage.min.js"></script>
+    <script src="./assets/js/fullpage.min.js"></script>
+    <script src="./assets/js/jquery.min_1.12.4.js"></script>
 </head>
 <body>
     <div class="top_btn">
@@ -38,8 +40,8 @@
             <div class="nav_btn">
                 <span></span>
             </div>
-            <!-- <div class="m_Nav">
-                <ul class="list">
+            <div class="m_Nav">
+                <ul class="m_list">
                     <li>
                         <a href="#">STRMNFT가이드</a>
                     </li>
@@ -47,14 +49,14 @@
                         <a href="#">METAPANG가이드</a>
                     </li>
                 </ul>
-            </div> -->
+            </div>
         </nav>
     </header>
     <div id="fullpage" class="guide-wrapper">
         <div class="section strmnft">
             <div class="container">
                 <div class="guide-title">
-                    <h2>STRMNFT 가이드 (STRMNFT GUIDE)</h2>
+                    <h2><a href="./strmnet_guide/strmnft.html">STRMNFT 가이드 (STRMNFT GUIDE)</a></h2>
                 </div>
                 <div class="guide-item">
                     <div class="guide-left">
@@ -98,7 +100,7 @@
         <div class="section metapang">
             <div class="container">
                 <div class="guide-title">
-                    <h2>METAPANG 가이드 (METAPANG GUIDE)</h2>
+                    <h2><a href="./metapang/metapang.html">METAPANG 가이드 (METAPANG GUIDE)</a></h2>
                 </div>
                 <div class="guide-item">
                     <div class="guide-left">
@@ -141,9 +143,14 @@
     <script>
         const topBtn = document.querySelector('.top_btn');
         const list = document.querySelectorAll('.list > li > a');
+        const mList = document.querySelectorAll('.m_list > li > a')
         const section = document.querySelectorAll('.section');
         const body =  document.querySelector('body')
         let yOffset = 0;
+
+        $('.nav_btn').click(function(){
+            $('.m_Nav').slideToggle();
+        });
 
         window.addEventListener('load', () => {
             window.addEventListener('scroll', () => {
@@ -158,6 +165,7 @@
                 }
             });
         });
+
         topBtn.addEventListener('click', () => {
             scrollTo({
                     top: 0,
@@ -165,9 +173,9 @@
                     behavior: 'smooth'
                 });
         });
-        function smoothScroll() {
-            for (let i = 0; i < list.length; i++) {
-            list[i].addEventListener('click',(e) => {
+        function smoothScroll(index) {
+            for (let i = 0; i < index.length; i++) {
+                index[i].addEventListener('click',(e) => {
                 e.preventDefault();
                 let offsetTop = section[i].offsetTop;
                 scrollTo({
@@ -178,7 +186,8 @@
             });
         }
         }
-        smoothScroll();
+        smoothScroll(list);
+        smoothScroll(mList);
     </script>
 </body>
 </html>
