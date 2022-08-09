@@ -28,4 +28,22 @@
     .logo-img {
         width: 100%;
     }
+    .top_btn {
+        right: 10px; bottom: 10px;
+    }
+    .top_btn span {
+        width: 40px; height: 40px;
+    }
+    .top_btn span::before {
+        top: 9px;
+        left: 12px;
+        width: 3px;
+        height: 15px;
+    }
+    .top_btn span::after {
+        top: 9px;
+        right: 12px;
+        width: 3px;
+        height: 15px;
+    }
 }
